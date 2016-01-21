@@ -62,4 +62,4 @@ passport.protected = function protected(req, res, next) {
   res.redirect('/login');
 };
 
- exports = module.exports = passport;
+exports = module.exports = passport;
