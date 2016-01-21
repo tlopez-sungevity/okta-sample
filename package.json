@@ -1,6 +1,6 @@
 {
-  "name": "okta-node-express",
-  "version": "0.0.0",
+  "name": "okta-samples",
+  "version": "1.0.0",
   "description": "Sample okta usage with node.js",
   "main": "index.js",
   "scripts": {
@@ -13,5 +13,9 @@
     "passport-saml": "git://github.com/pawanvshah/passport-saml.git",
     "passport": "^0.2.0",
     "connect": "^2.14.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hiltonsungevity/okta-samples.git"
   }
 }
