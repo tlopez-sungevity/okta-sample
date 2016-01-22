@@ -7,7 +7,7 @@ var users = [];
 function findByEmail(email, fn) {
   for (var i = 0, len = users.length; i < len; i++) {
     var user = users[i];
-    if (user.email === email) {
+    if (user.Email === email) {
       return fn(null, user);
     }
   }
@@ -20,7 +20,7 @@ function findByEmail(email, fn) {
 //   this will be as simple as storing the user ID when serializing, and finding
 //   the user by ID when deserializing.
 passport.serializeUser(function(user, done) {
-  done(null, user.email);
+  done(null, user.Email);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -37,11 +37,11 @@ passport.use(new SamlStrategy(
     cert: config.auth.cert
   },
   function(profile, done) {
-    if (!profile.email) {
-      return done(new Error("No email found AHHH"), null);
+    if (!profile.Email) {
+      // return done(new Error("No Email found AHHH"), null);
     }
     process.nextTick(function () {
-      findByEmail(profile.email, function(err, user) {
+      findByEmail(profile.Email, function(err, user) {
         if (err) {
           return done(err);
         }
