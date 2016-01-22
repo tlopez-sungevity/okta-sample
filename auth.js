@@ -28,7 +28,7 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
-
+ 
 passport.use(new SamlStrategy(
   {
     issuer: "http://localhost:3000/",
@@ -38,7 +38,7 @@ passport.use(new SamlStrategy(
   },
   function(profile, done) {
     if (!profile.email) {
-      return done(new Error("No email found"), null);
+      return done(new Error("No email found AHHH"), null);
     }
     process.nextTick(function () {
       findByEmail(profile.email, function(err, user) {
