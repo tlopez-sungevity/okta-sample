@@ -57,6 +57,8 @@ passport.use(new SamlStrategy(
 
 passport.protected = function protected(req, res, next) {
   if (req.isAuthenticated()) {
+    console.log("HERE")
+    console.log(req.session.passport.user)
     return next();
   }
   res.redirect('/login');
