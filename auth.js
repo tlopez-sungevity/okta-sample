@@ -28,10 +28,10 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
- 
+
 passport.use(new SamlStrategy(
   {
-    issuer: "http://localhost:3000/",
+    issuer: "https://localhost:3000/",
   	path: '/login/callback',
     entryPoint: config.auth.entryPoint,
     cert: config.auth.cert
