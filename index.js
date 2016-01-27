@@ -20,7 +20,7 @@ app.configure(function() {
   app.use(connect.compress());
   app.use(express.cookieParser());
   app.use(express.bodyParser());
-  app.use(express.session({ secret: "won't tell because it's secret"  }));
+  app.use(express.session({ key: 'ACCESS_TOKEN', secret: "won't tell because it's secret", cookie: {httpOnly: false}  }));
   app.use(auth.initialize());
   app.use(auth.session());
 });
@@ -29,6 +29,10 @@ app.configure(function() {
 
 app.post('/', auth.protected, function (req, res){
     res.end("Hello " + req.session.passport.user);
+});
+
+app.get('/', auth.protected, function (req, res){
+	  res.end("Hello" + req.session.passport.user);
     res.send({
     "access_token": "d7b7b093-821d-3ed5-ad8b-e91f2ae669d5",
     "expires_in": 3600,
@@ -36,10 +40,6 @@ app.post('/', auth.protected, function (req, res){
     "refresh_token": "827af4a2-6dc7-3c75-8bd7-36b7823857fb",
     "token_type": "Bearer"
   });
-});
-
-app.get('/', auth.protected, function (req, res){
-	  res.end("Hello" + req.session.passport.user);
 });
 
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {

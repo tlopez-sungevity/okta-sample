@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Diana Hilton",
+  "author": "Traci Lopez",
   "license": "ISC",
   "dependencies": {
     "express": "~3.5.0",
@@ -16,6 +16,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hiltonsungevity/okta-samples.git"
+    "url": "git://github.com/tlopez/okta-samples.git"
   }
 }
