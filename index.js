@@ -20,7 +20,7 @@ app.configure(function() {
   app.use(connect.compress());
   app.use(express.cookieParser());
   app.use(express.bodyParser());
-  app.use(express.session({ key: 'ACCESS_TOKEN', secret: "won't tell because it's secret", cookie: {httpOnly: false}  }));
+  app.use(express.session({ key: 'ACCESS_TOKEN', secret: "won't tell because it's secret", cookie: {httpOnly: false, maxAge: 360000}  }));
   app.use(auth.initialize());
   app.use(auth.session());
 });
